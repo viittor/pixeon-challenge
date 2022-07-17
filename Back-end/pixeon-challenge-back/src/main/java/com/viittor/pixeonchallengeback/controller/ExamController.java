@@ -16,7 +16,7 @@ public class ExamController {
     @Autowired
     ExamService service;
 
-    @PostMapping
+    @PostMapping//ok
     public ResponseEntity<Long> post(
             @RequestBody Exam exam
     ) {

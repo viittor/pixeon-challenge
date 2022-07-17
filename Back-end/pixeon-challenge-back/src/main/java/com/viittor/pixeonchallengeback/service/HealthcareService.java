@@ -15,12 +15,14 @@ public class HealthcareService {
     HealthcareRepository repository;
     public Long insert (Healthcare healthcare){
         Healthcare hc1 = healthcare;
+        hc1.setCoins(20);
         validatePost(hc1);
         repository.save(hc1);
         return hc1.getId();
     }
 
     public void validatePost(Healthcare healthcare){
+
         //validade if name is already on database
         Optional<Healthcare> listHealthcareName = repository.findByName(healthcare.getName());
         if(listHealthcareName.isPresent() || healthcare.getName().isEmpty()){

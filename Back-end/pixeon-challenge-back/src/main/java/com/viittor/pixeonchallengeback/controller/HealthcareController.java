@@ -21,6 +21,7 @@ public class HealthcareController {
     public ResponseEntity<Long> post(
             @RequestBody Healthcare healthcare
 ){
+
         Long healthCareId = service.insert(healthcare);
         return new ResponseEntity<>(healthCareId, HttpStatus.CREATED);
     }

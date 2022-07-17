@@ -14,6 +14,8 @@ public class Healthcare {
 
     private String cnpj;
 
+    private Integer coins;
+
     public long getId() {
         return id;
     }
@@ -36,5 +38,13 @@ public class Healthcare {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
     }
 }
