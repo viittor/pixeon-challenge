@@ -23,12 +23,12 @@ public class HealthcareService {
     public void validatePost(Healthcare healthcare){
         //validade if name is already on database
         Optional<Healthcare> listHealthcareName = repository.findByName(healthcare.getName());
-        if(listHealthcareName.isPresent()){
+        if(listHealthcareName.isPresent() || healthcare.getName().isEmpty()){
             throw new EntityExistsException("Já existe uma clinica cadastrada com o nome " + healthcare.getName());
         }
         //validade if cnpj is already on database
         Optional<Healthcare> listHealthcareCnpj = repository.findByCnpj(healthcare.getCnpj());
-        if(listHealthcareCnpj.isPresent()){
+        if(listHealthcareCnpj.isPresent() || healthcare.getCnpj().isEmpty()){
             throw new EntityExistsException("Já existe uma clinica cadastrada com o CNPJ " + healthcare.getCnpj());
         }
     }

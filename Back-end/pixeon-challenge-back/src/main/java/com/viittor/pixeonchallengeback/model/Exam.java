@@ -6,56 +6,87 @@ import javax.persistence.*;
 public class Exam {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exam")
+    @SequenceGenerator(name = "exam", sequenceName = "exam_id_seq", allocationSize = 1)
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "healthcare_institucion_id")
+    @JoinColumn(name = "id_healthcare")
     private Healthcare healthcare;
 
-    @ManyToOne
-    @JoinColumn(name = "pacient_id")
-    private Pacient pacient;
+    private String pacientName;
 
-    @ManyToOne
-    @JoinColumn(name = "physician_id")
-    private Physician physician;
+    private Integer pacientAge;
 
-    @ManyToOne
-    @JoinColumn(name = "procedure_id")
-    private Procedure procedure;
+    private String pacientGender;
 
-    public Procedure getProcedure() {
-        return procedure;
-    }
+    private String physicianName;
 
-    public void setProcedure(Procedure procedure) {
-        this.procedure = procedure;
-    }
+    private String physicianCrm;
 
-    public Physician getPhysician() {
-        return physician;
-    }
+    private String procedureName;
 
-    public void setPhysician(Physician physician) {
-        this.physician = physician;
-    }
-
-    public Pacient getPacient() {
-        return pacient;
-    }
-
-    public void setPacient(Pacient pacient) {
-        this.pacient = pacient;
-    }
-
-
-    public Healthcare getHealthcareInstitucion() {
+    public Healthcare getHealthcare() {
         return healthcare;
     }
 
-    public void setHealthcareInstitucion(Healthcare healthcare) {
+    public void setHealthcare(Healthcare healthcare) {
         this.healthcare = healthcare;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPacientName() {
+        return pacientName;
+    }
+
+    public void setPacientName(String pacientName) {
+        this.pacientName = pacientName;
+    }
+
+    public Integer getPacientAge() {
+        return pacientAge;
+    }
+
+    public void setPacientAge(Integer pacientAge) {
+        this.pacientAge = pacientAge;
+    }
+
+    public String getPacientGender() {
+        return pacientGender;
+    }
+
+    public void setPacientGender(String pacientGender) {
+        this.pacientGender = pacientGender;
+    }
+
+    public String getPhysicianName() {
+        return physicianName;
+    }
+
+    public void setPhysicianName(String physicianName) {
+        this.physicianName = physicianName;
+    }
+
+    public String getPhysicianCrm() {
+        return physicianCrm;
+    }
+
+    public void setPhysicianCrm(String physicianCrm) {
+        this.physicianCrm = physicianCrm;
+    }
+
+    public String getProcedureName() {
+        return procedureName;
+    }
+
+    public void setProcedureName(String procedureName) {
+        this.procedureName = procedureName;
+    }
 }

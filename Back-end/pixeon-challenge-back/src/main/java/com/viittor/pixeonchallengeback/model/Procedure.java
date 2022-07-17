@@ -1,15 +1,13 @@
 package com.viittor.pixeonchallengeback.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "procedure")
 public class Procedure {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "procedureger")
+    @SequenceGenerator(name = "procedureger", sequenceName = "procedure_id_seq", allocationSize = 1)
     private long id;
 
     private String name;
