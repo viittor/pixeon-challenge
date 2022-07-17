@@ -2,11 +2,10 @@ package com.viittor.pixeonchallengeback.model;
 
 import javax.persistence.*;
 
-@Entity(name = "HealthcareInstitucion")
-public class HealthcareInstitucion {
+@Entity(name = "Healthcare")
+public class Healthcare {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     private String name;

@@ -11,7 +11,7 @@ public class Exam {
 
     @ManyToOne
     @JoinColumn(name = "healthcare_institucion_id")
-    private HealthcareInstitucion healthcareInstitucion;
+    private Healthcare healthcare;
 
     @ManyToOne
     @JoinColumn(name = "pacient_id")
@@ -50,12 +50,12 @@ public class Exam {
     }
 
 
-    public HealthcareInstitucion getHealthcareInstitucion() {
-        return healthcareInstitucion;
+    public Healthcare getHealthcareInstitucion() {
+        return healthcare;
     }
 
-    public void setHealthcareInstitucion(HealthcareInstitucion healthcareInstitucion) {
-        this.healthcareInstitucion = healthcareInstitucion;
+    public void setHealthcareInstitucion(Healthcare healthcare) {
+        this.healthcare = healthcare;
     }
 
 }
