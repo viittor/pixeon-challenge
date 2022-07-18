@@ -6,9 +6,9 @@ import com.viittor.pixeonchallengeback.repository.ExamRepository;
 import com.viittor.pixeonchallengeback.repository.HealthcareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.CannotCreateTransactionException;
 
 import javax.persistence.EntityNotFoundException;
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,11 +24,17 @@ public class ExamService {
     public Long insert(Exam exam) {// implementar validações
         Exam exam1 = exam;
         validadePost(exam1);
+        getCoins(exam1);
         repository.save(exam1);
+        coinsController(exam1);
+        exam.setRecovered(false);
         return exam1.getId();
     }
 
     public void validadePost(Exam exam) {// implementar validações
+        if (!healthcareRepository.existsById(exam.getHealthcare().getId())) {
+            throw new EntityNotFoundException("A clinica informada não foi encontrada");
+        }
         if (exam.getPacientName().isEmpty()) {
             throw new NullPointerException("O campo Nome do Paciente não pode estar vazio!");
         }
@@ -51,6 +57,19 @@ public class ExamService {
         }
     }
 
+    public void getCoins(Exam exam){
+        Optional<Healthcare> healthcare = healthcareRepository.findById(exam.getHealthcare().getId());
+        Healthcare hc1 = healthcare.get();
+        if(hc1.getCoins() <= 0){
+            throw new CannotCreateTransactionException("Saldo insuficiente para realizar a transação");
+        }
+    }
+    public void coinsController(Exam exam){
+        Optional<Healthcare> healthcare = healthcareRepository.findById(exam.getHealthcare().getId());
+        Healthcare hc1 = healthcare.get();
+        hc1.setCoins(hc1.getCoins() - 1);
+        healthcareRepository.save(hc1);
+    }
     public void patch(Long id, Exam exam){
         Optional<Exam> examList = repository.findById(id);
         if(examList.isEmpty()){
@@ -76,6 +95,12 @@ public class ExamService {
         if (exam.getProcedureName() != null){
             exam2.setProcedureName(exam.getProcedureName());
         }
+        if(!exam.isRecovered()){
+            getCoins(exam2);
+            coinsController(exam2);
+            exam2.setRecovered(true);
+        }
+
         repository.save(exam2);
     }
 

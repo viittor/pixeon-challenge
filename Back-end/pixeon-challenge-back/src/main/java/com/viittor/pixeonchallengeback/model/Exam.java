@@ -26,6 +26,8 @@ public class Exam {
 
     private String procedureName;
 
+    private boolean recovered;
+
     public Healthcare getHealthcare() {
         return healthcare;
     }
@@ -88,5 +90,13 @@ public class Exam {
 
     public void setProcedureName(String procedureName) {
         this.procedureName = procedureName;
+    }
+
+    public boolean isRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(boolean recovered) {
+        this.recovered = recovered;
     }
 }
