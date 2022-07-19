@@ -45,8 +45,10 @@ body{
 }
 
 .menu-item{
-  color: rgb(255, 255, 255);
+  color: rgba(41, 41, 41, 0.822);
   padding: 5px 40px;
+  background-color: rgba(240, 248, 255, 0.185);
+  margin: 2px 0 2px 0;
   text-decoration: none;
   text-align: left;
   width: 300px;
@@ -73,6 +75,21 @@ body{
 
   height: 50px;
   width: auto;
+}
+
+/*HOME*/
+
+#logo-home{
+
+  height: auto;
+  width: 50%;
+}
+
+#home-container{
+box-sizing: border-box;
+text-align: center;
+margin-top: 35vh;
+
 }
 
 /* MAIN PAGE */

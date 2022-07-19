@@ -1,4 +1,5 @@
 import React from "react";
+import ExamItem from "../../components/ExamItem/ExamItem";
 import Header from "../../components/Header/Header";
 
 const ExamList = () => {
@@ -8,6 +9,7 @@ const ExamList = () => {
         <Header/> 
         <div className="individual-page">
         <h1 className="h1-page">Listar Exames</h1>
+        <ExamItem/>
             </div>    
         </div>       
         </>
