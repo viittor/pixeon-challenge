@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 
 const ExamDelete = () => {
+
+    
+    const [examItem, setExamItem] = useState("");
+
+    
+
+    const handleSubmit = async (event) => {
+        console.log("Inicio da função handle")
+        console.log(examItem)
+        event.preventDefault();
+            fetch("http://localhost:8080/exam/" + examItem, {
+            method: "DELETE",
+        });
+        console.log("fim da função handle")
+        alert("Exame excluido com sucesso!")
+    }
     return(
         <>
         <div className="main-container">
@@ -9,12 +25,17 @@ const ExamDelete = () => {
         <div className="individual-page">
         <h1 className="h1-page">Deletar Exame</h1>
         <div className="form-container">
-        <form className="form-health">
+        <form className="form-health" onSubmit={handleSubmit}>
             <label className="form-label">Numero do Exame:</label>
-                <input className="form-input" required/>
+                <input 
+                className="form-input"
+                name="exam"
+                type="text"
+                onChange={(e) => setExamItem(e.target.value)}
+                required/>
             
             <div className="button-div">
-                <button className="btn-input">Deletar</button>
+                <button className="btn-input" type="submit">Deletar</button>
                 <button className="btn-input">Cancelar</button>
             </div>
             
@@ -23,7 +44,6 @@ const ExamDelete = () => {
         </div>    
         </div>
         </>
-        
         
     )
 }
