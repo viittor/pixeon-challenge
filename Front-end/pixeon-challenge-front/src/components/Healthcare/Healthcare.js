@@ -20,7 +20,6 @@ const Healthcare = () => {
                     Accept: "application/json"
                 },
                 method: "POST",
-                mode: "no-cors",
                 body: JSON.stringify({
                     name: name,
                     cnpj: cnpj
@@ -48,16 +47,19 @@ const Healthcare = () => {
                         type="text"
                         name="name"
                         onChange={(e) => setName(e.target.value)}
+                        placeholder="Clinica Medical Plus Ltda"
                         maxLength="100"
                         required
                     />
                     <label className="form-label">CNPJ:</label>
                     <input
                         className="form-input" 
-                        type="text"
+                        type="text" 
+                        maxLength="14" 
+                        pattern="([0-9]{14})"
                         name="cnpj"
                         onChange={(e) => setCnpj(e.target.value)}
-                        maxLength="14"
+                        placeholder="Ex.: 00000000000000"
                         required />
 
                     <div className="button-div">

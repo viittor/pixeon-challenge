@@ -1,11 +1,13 @@
 package com.viittor.pixeonchallengeback.service;
 
+import com.viittor.pixeonchallengeback.model.Exam;
 import com.viittor.pixeonchallengeback.model.Healthcare;
 import com.viittor.pixeonchallengeback.repository.HealthcareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,6 +21,11 @@ public class HealthcareService {
         validatePost(hc1);
         repository.save(hc1);
         return hc1.getId();
+    }
+
+    public List<Healthcare> getAll(){
+        List<Healthcare> exam = (List<Healthcare>) repository.findAll();
+        return exam;
     }
 
     public void validatePost(Healthcare healthcare){
