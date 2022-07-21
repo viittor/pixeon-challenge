@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity(name = "exam")
 public class Exam {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exam")
     @SequenceGenerator(name = "exam", sequenceName = "exam_id_seq", allocationSize = 1)
