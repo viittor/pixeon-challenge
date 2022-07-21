@@ -41,6 +41,7 @@ const ExamRegister = () => {
         alert("Por favor preencha o Nome do Procedimento");
         return;
       }
+      const healthId = JSON.parse('{"id":' + healthcare + '}');
       await fetch("http://localhost:8080/exam", {
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +49,7 @@ const ExamRegister = () => {
         },
         method: "POST",
         body: JSON.stringify({
-          healthcare: healthcare.id,
+          healthcare: healthId,
           pacientName: pacientName,
           pacientAge: pacientAge,
           pacientGender: pacientGender,
@@ -57,15 +58,7 @@ const ExamRegister = () => {
           procedureName: procedureName
         }),
         
-      });
-      console.log(healthcare);
-      console.log(pacientName);
-      console.log(pacientAge);
-      console.log(pacientGender);
-      console.log(physicianName);
-      console.log(physicianCrm);
-      console.log(procedureName);
-      
+      });      
       alert("Exame cadastrado com sucesso!");
     } catch (error) {
       alert(
@@ -93,7 +86,6 @@ const ExamRegister = () => {
               <select
                 className="form-input"
                 name="healthcares"
-                // value={healthcare}
                 onChange={(e) => setHealthcare(e.target.value)}
                 required
               >
