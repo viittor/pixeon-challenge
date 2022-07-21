@@ -9,31 +9,40 @@ const ExamItem = () => {
             .then((data) => setExam(data));
     }, []);
 
-    return(
+    return (
         <>
-        <div className="container-exam-item">
-            <ul className="exam-item">
+            <div className="container-exam-item">
+                <ul className="exam-item">
 
-                {exam.map((item) =>(
-                    <li>
-                        <h4>Exame: {item.id}</h4>
-                        <p>Clinica: {item.healthcare.name}</p>
-                        <h4>Paciente: {item.pacientName}</h4>
-                        <p>Idade: {item.pacientAge}</p>
-                        <p>Gênero: {item.pacientGender}</p>
-                        <p>Médico: {item.physicianName}</p>
-                        <p>CRM: {item.physicianCrm}</p>
-                        <p>Procedimento: {item.procedureName}</p>
+                    {exam.map((item) => (
+                        <li className="exam-li" >
+                            <div className="exam-head">
+                                <h4 id="exam-id">Exame: {item.id}</h4>
+                                <h4 className="exam-h4">{item.pacientName}</h4>
+                            </div>
+                            <div className="exam-body">
+                                <p className="exam-p">Idade: {item.pacientAge}</p>
+                                <p className="exam-p">Gênero: {item.pacientGender}</p>
+                            </div>
+                            <p className="exam-p">Clinica: {item.healthcare.name}</p>
+                            <div className="exam-body">
+                                <p className="exam-p">Médico: {item.physicianName}</p>
+                                <p className="exam-p">CRM: {item.physicianCrm}</p>
+                            </div>
+                            <div className="exam-body">
 
-                    </li>
-                ))}
+                            </div>
+                            <p className="exam-p">Procedimento: {item.procedureName}</p>
 
-            </ul>
+                        </li>
+                    ))}
 
-        </div>
+                </ul>
+
+            </div>
         </>
-        
-        
+
+
     )
 }
 

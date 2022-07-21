@@ -97,12 +97,14 @@ margin-top: 35vh;
   display: flex;
   flex-direction: row;
   margin: none;
+  width: 100vw;
 }
 
 .individual-page{
   background-color: rgba(218, 218, 218, 0.432);
   width: 80vw;
   height: 100vh;
+  overflow: scroll;
 }
 
 .h1-page{
@@ -162,3 +164,72 @@ margin-top: 35vh;
   background-color: rgb(116, 0, 161);
   color: white;
 }
+
+/*EXAM ITEM*/
+
+.container-exam-item{
+
+}
+.exam-item{
+  max-height: auto;
+}
+
+.exam-li{
+  background-color: rgba(255, 255, 255, 0.63);
+  padding: 5px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  max-width: 600px;
+  max-height: 200px;
+  height: auto;
+  width: auto;
+  margin-bottom: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.exam-h4{
+  text-align: center;
+  width: 80%;
+  height: 80%;
+  max-height: 80px;
+  max-width: 450px;
+  margin: 0;  font-size: 1.3em;
+}
+
+#exam-id{
+  text-align: center;
+  width: 20%;
+  height: 80%;
+  max-height: 80px;
+  max-width: 150px;
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.exam-head{
+  padding-top: 5px;
+  width: 100%;
+  border-bottom: #3b3b3b69 1px solid;
+  color: #5e01b4;
+  display: flex;
+  box-sizing: border-box;
+  height: 40px;
+}
+.exam-body{
+  display: flex;
+  
+  border-bottom: #3b3b3b1e 1px solid;
+}
+.exam-p{
+  margin:3px 0 3px 15px;
+  width: 50%;
+  max-height: 25px;
+  max-width: 600px;
+  font-size: 1em;
+}
+
+

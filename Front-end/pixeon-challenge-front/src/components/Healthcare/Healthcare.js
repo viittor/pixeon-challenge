@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Healthcare = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [cnpj, setCnpj] = useState("");
 
@@ -64,7 +66,7 @@ const Healthcare = () => {
 
                     <div className="button-div">
                         <button className="btn-input" type="submit">Cadastrar</button>
-                        <button className="btn-input">Cancelar</button>
+                        <button className="btn-input" onClick={() => navigate("/")}>Cancelar</button>
                     </div>
 
                 </form>

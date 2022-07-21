@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import Header from "../../components/Header/Header";
 
 const ExamRegister = () => {
+  const navigate = useNavigate();
   const [healthcare, setHealthcare] = useState("");
   const [healthcares, setHealthcares] = useState([]);
   const [pacientName, setPacientName] = useState("");
@@ -57,8 +59,8 @@ const ExamRegister = () => {
           physicianCrm: physicianCrm,
           procedureName: procedureName
         }),
-        
-      });      
+
+      });
       alert("Exame cadastrado com sucesso!");
     } catch (error) {
       alert(
@@ -160,7 +162,7 @@ const ExamRegister = () => {
 
               <div className="button-div">
                 <button className="btn-input" type="submit">Cadastrar</button>
-                <button className="btn-input">Cancelar</button>
+                <button className="btn-input"  onClick={() => navigate("/")}>Cancelar</button>
               </div>
 
             </form>
